@@ -1,5 +1,9 @@
 ## Quizzical App
 
+[Live on Vecel](https://quizzical-react-quiz-app.vercel.app/)
+
+[Live on Netlify](https://quizzical-react-quiz-app.netlify.app/)
+
 Quick start:
 
 ```
