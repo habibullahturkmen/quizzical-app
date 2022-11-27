@@ -14,6 +14,7 @@ const App = () => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [quizzes, setQuizzes] = React.useState({});
     const [noQuestion, setNoQuestion] = React.useState(1)
+    const [isFetch, setIsFetch] = React.useState(false)
     const [quizSelectionData, setQuizSelectionData] = React.useState({});
     const [showAnswers, setShowAnswers] = React.useState(false);
 
@@ -27,7 +28,10 @@ const App = () => {
                     id: nanoid()
                 }
             }));
-        });
+            setIsFetch(true);
+        }).catch(() => {
+            setIsFetch(false);
+        })
 
         setTimeout(() => {
             setIsLoading(false);
@@ -133,7 +137,15 @@ const App = () => {
         );
     }
 
-    if (!isStart || noQuestion === 1) {
+
+    if (!isFetch) {
+        return (
+            <div className="quiz-form-container">
+                <h3>Unable to Fetch the questions! Check your internet connection, refresh the web page and try again.</h3>
+                <input className="quiz-form-btn" type="button" value="Refresh Page" onClick={() => window.location.reload()} />
+            </div>
+        );
+    } else if (!isStart || noQuestion === 1) {
         return (
             <>
                 <img className="bg-img-1" src={bgImg1} alt="gb-1" />
