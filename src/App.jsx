@@ -18,12 +18,12 @@ const App = () => {
     const [showAnswers, setShowAnswers] = React.useState(false);
 
     React.useEffect(() => {
-        fetchQuizzes(quizSelectionData).then(data => {
-            setNoQuestion(data.response_code);
-            setQuizzes(data.results.map(quiz => {
+        fetchQuizzes(quizSelectionData).then(({response_code, results}) => {
+            setNoQuestion(response_code);
+            setQuizzes(results.map(quiz => {
                 return {
                     ...quiz,
-                    answers: [quiz.correct_answer, ...quiz.incorrect_answers].sort().reverse(),
+                    answers: [quiz["correct_answer"], ...quiz["incorrect_answers"]].sort().reverse(),
                     id: nanoid()
                 }
             }));
@@ -128,7 +128,7 @@ const App = () => {
             <main className="main-container">
                 <img className="bg-img-1" src={bgImg1} alt="gb-1" />
                 <img className="bg-img-2" src={bgImg2} alt="gb-2" />
-                <img src={Loader} alt="loader" width={100} />
+                <img className="loader" src={Loader} alt="loader" />
             </main>
         );
     }
