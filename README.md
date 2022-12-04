@@ -24,6 +24,15 @@ $ npm build
 
 ## 📷 Screenshots:
 ![image](./src/assets/img.png)
-![image](./src/assets/img-ipad-2.png)
-![image](./src/assets/img-ipad.png)
-![image](./src/assets/img-iphone.png)
+
+<p align="center">
+  <img src="./src/assets/img-ipad-2.png"  alt="Mobile View"/>
+</p>
+
+<p align="center">
+  <img src="./src/assets/img-ipad.png"  alt="Mobile View"/>
+</p>
+
+<p align="center">
+  <img src="./src/assets/img-iphone.png"  alt="Mobile View"/>
+</p>
