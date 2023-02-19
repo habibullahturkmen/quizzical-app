@@ -35,7 +35,13 @@ const App = () => {
 
         setTimeout(() => {
             setIsLoading(false);
-        }, 5000);
+        }, 500);
+
+        return () => {
+            setQuizzes([]);
+            // setIsFetch(false);
+            setIsLoading(true);
+        }
 
     }, [isStart]);
 
